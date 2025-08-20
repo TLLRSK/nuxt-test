@@ -1,6 +1,12 @@
+<script setup lang="ts">
+import Grid from './components/grid/Grid.vue';
+import Navbar from './components/navbar/Navbar.vue';
+
+</script>
+
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <Navbar />
+    <Grid />
   </div>
 </template>
