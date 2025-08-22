@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import GridItem from './GridItem.vue';
+import GridItem from "./GridItem.vue";
 
-const { yachts, totalYachts, isLoading, error, currentPage, hasNextPage, loadMore } = useYachts();
+const { yachts, totalYachts, isLoading, error, hasNextPage, loadMore } =
+  useYachts();
 </script>
 
 <template>
@@ -16,16 +17,11 @@ const { yachts, totalYachts, isLoading, error, currentPage, hasNextPage, loadMor
       <li v-if="isLoading && yachts.length === 0" class="loading">
         Loading...
       </li>
-      <li v-else-if="!yachts.length" class="no-results">
-        No yachts found.
-      </li>
-      
+      <li v-else-if="!yachts.length" class="no-results">No yachts found.</li>
+
       <GridItem v-else v-for="item in yachts" :key="item.id" :item="item" />
     </ul>
 
-    <button v-if="hasNextPage" @click="loadMore">
-      Load more
-    </button>
-  
+    <button v-if="hasNextPage" @click="loadMore">Load more</button>
   </div>
 </template>

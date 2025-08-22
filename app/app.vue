@@ -7,5 +7,5 @@ import Navbar from "./components/navbar/Navbar.vue";
   <div>
     <Navbar />
     <Grid />
-  </div>  
+  </div>
 </template>

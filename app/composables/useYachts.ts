@@ -49,7 +49,6 @@ export const useYachts = () => {
     totalYachts,
     isLoading: pending,
     error,
-    currentPage,
     hasNextPage,
     loadMore,
   };
