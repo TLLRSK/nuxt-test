@@ -1,0 +1,9 @@
+footer {
+    background-color: var(--primary-100);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.4rem;
+    margin-top: 4.8rem;
+}

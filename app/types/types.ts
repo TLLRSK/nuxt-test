@@ -1,3 +1,5 @@
+import type { Component } from "vue";
+
 type TCurrencies = {
   EUR: number;
   USD: number;
@@ -64,4 +66,16 @@ export interface YachtState {
   hasNextPage: boolean;
   isLoading: boolean;
   error: string | null;
+}
+
+export type TView = {
+  class: string;
+  icon: Component;
+}
+
+export type TViewsMap = Record<string, TView>;
+
+export type TViewIconProps = {
+  color?: string;
+  active: boolean;
 }

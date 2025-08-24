@@ -1,0 +1,17 @@
+:root {
+  --white: oklch(1 0 0);
+  --white-40: oklch(1 0 0 / 40%);
+  --black: oklch(0.1994 0.0218 195.55);
+
+  --gray-0: oklch(0.4239 0 0);
+  --gray-100: oklch(0.6167 0 0);
+  --gray-200: oklch(0.9037 0 0);
+  --gray-300: oklch(0.9551 0 0);
+
+  --primary-0: oklch(0.2263 0.0269 195.42);
+  --primary-100: oklch(0.2751 0.0347 195.33);
+  --primary-200: oklch(0.438 0.0279 196.18);
+
+  --secondary-0: oklch(0.5199 0.0266 285.44);
+  --secondary-100: oklch(0.7121 0.0144 286.03);
+}

@@ -1,0 +1,55 @@
+button {
+  border: none;
+  background: transparent;
+  padding: .8rem 1.6rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn--primary {
+  background-color: var(--primary-200);
+  color: var(--white);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--primary-200);
+  border: 1px solid var(--secondary-100);
+  transition: color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn--view {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: transparent;
+  transition: color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover {
+    color: var(--secondary-100)
+  }
+  &.active {
+    color: var(--primary-0)
+  }
+}
+
+.btn--bookmark {
+  position: absolute;
+  padding: 0;
+  top: 10px;
+  right: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .btn--primary {
+    background-color: var(--primary-100);
+  }
+  .btn--secondary:hover {
+    color: var(--primary-100);
+    background-color: var(--secondary-300);
+  }
+}

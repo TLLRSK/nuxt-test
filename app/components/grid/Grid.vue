@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Card from "./Card.vue";
+import ViewToggler from "./ViewToggler.vue";
 const { currentView } = useViews();
 const { yachts, totalYachts, isLoading, error, hasNextPage, loadMore } =
   useYachts();
@@ -9,16 +10,18 @@ const { yachts, totalYachts, isLoading, error, hasNextPage, loadMore } =
   <section class="grid-container">
     <header>
       <h1
-        :data-desktop="`Yachts for sale · ${totalYachts}`"
+        class="text-md"
+        :data-desktop="`YACHTS FOR SALE · ${totalYachts}`"
         :data-mobile="`BUY · ${totalYachts} Yachts`"
       />
+      <ViewToggler />
     </header>
 
     <div v-if="error" class="error-message">
       <p>There was an error loading the yachts list: {{ error.message }}</p>
     </div>
 
-    <ul class="grid columns-4">
+    <ul :class="['grid', currentView?.class]">
       <Card v-for="item in yachts" :key="item.id" :item="item" />
     </ul>
 
@@ -31,7 +34,7 @@ const { yachts, totalYachts, isLoading, error, hasNextPage, loadMore } =
     </div>
 
     <div v-if="hasNextPage && yachts.length > 0" class="load-more-container">
-      <button @click="loadMore" class="btn--secondary">Load More</button>
+      <button @click="loadMore" class="btn--secondary text-sm">Load More</button>
     </div>
   </section>
 </template>

@@ -20,7 +20,7 @@ defineProps<Props>();
         <img :src="item.coverImage.url" :alt="item.name" class="img" />
       </NuxtLink>
 
-      <div class="price">
+      <div class="price text-sm">
         <h4>Price:</h4>
         <p>
           {{
@@ -32,31 +32,31 @@ defineProps<Props>();
       </div>
 
       <div class="specs">
-        <div class="spec-item">
+        <div class="spec-item text-sm">
           <h4>Length:</h4>
           <p>{{ item.length.meters }}m</p>
         </div>
 
         <span>|</span>
 
-        <div class="spec-item">
+        <div class="spec-item text-sm">
           <h4>Guests:</h4>
           <p>{{ item.guestsNumber }}</p>
         </div>
 
         <span>|</span>
 
-        <div class="spec-item">
+        <div class="spec-item text-sm">
           <h4>Cabins:</h4>
           <p>{{ item.cabinsNumber }}</p>
         </div>
       </div>
 
-      <div class="footer">
+      <div class="name">
         <NuxtLink :to="`/${item.permalink}`">
-          <h3>{{ item.name }}</h3>
+          <h3 class="text-md">{{ item.name }}</h3>
         </NuxtLink>
-        <button class="btn--primary">
+        <button class="btn--primary text-sm">
           Enquiry
         </button>
       </div>
