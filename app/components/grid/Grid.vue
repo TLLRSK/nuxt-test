@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import Card from "./Card.vue";
-import ViewToggler from "./ViewToggler.vue";
+import Header from "./Header.vue";
 const { currentView } = useViews();
-const { yachts, totalYachts, isLoading, error, hasNextPage, loadMore } =
+const { yachts, isLoading, error, hasNextPage, loadMore } =
   useYachts();
 </script>
 
 <template>
   <section class="grid-container">
-    <header>
-      <h1
-        class="text-md"
-        :data-desktop="`YACHTS FOR SALE · ${totalYachts}`"
-        :data-mobile="`BUY · ${totalYachts} Yachts`"
-      />
-      <ViewToggler />
-    </header>
+    <Header />
 
     <div v-if="error" class="error-message">
       <p>There was an error loading the yachts list: {{ error.message }}</p>
