@@ -20,48 +20,7 @@
       gap: .8rem;
     }
 
-    /* Icons */
-    [class*="view-icon"] {
-      padding: .2rem;
-    }
-
-    .view-icon--two-columns {
-      rect {
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-origin: center;
-      }
-
-      .active:nth-child(1) {
-        transform: translateY(.5rem);
-      }
-
-      .active:nth-child(2) {
-        transform: translateY(-.8rem);
-      }
-    }
-    .view-icon--four-columns {
-      rect {
-        transition: transform .6s cubic-bezier(0.075, 0.82, 0.165, 1),
-          fill .2s ease-in-out, stroke .2s ease-in-out;
-        transform-origin: center;
-      }
-
-      .active:nth-child(1) {
-        transform: translate(.7px, .7px) scale(0.9);
-      }
-
-      .active:nth-child(2) {
-        transform: translate(.7px, -.7px) scale(0.9);
-      }
-
-      .active:nth-child(3) {
-        transform: translate(-.7px, .7px) scale(0.9);
-      }
-
-      .active:nth-child(4) {
-        transform: translate(-.7px, -.7px) scale(0.9);
-      }
-    }
+    
   }
   @media screen and (max-width: 768px) {
     display: none;

@@ -3,7 +3,7 @@ import IconTwoColumns from "~/components/icons/IconTwoColumns.vue";
 import type { TView, TViewsMap } from "~/types/types";
 
 const viewsMap: TViewsMap = {
-   columnsFour: {
+  columnsFour: {
     class: "columns-4",
     icon: IconFourColumns,
   },
@@ -14,15 +14,26 @@ const viewsMap: TViewsMap = {
 };
 
 const currentView: Ref<TView | undefined> = ref(viewsMap.columnsTwo);
+const isAnimating: Ref<boolean> = ref(false);
 
-const setView = (selectedView: string): void => {
-  const matchedView = Object.values(viewsMap).find(view => view.class === selectedView);
-  
-  if (matchedView) {
-    currentView.value = matchedView;
-  }
+const handleViewChange = async (selectedView: string): Promise<void> => {
+  const matchedView = Object.values(viewsMap).find(
+    (view) => view.class === selectedView
+  );
+
+  if (!matchedView || matchedView.class === currentView.value?.class) return;
+
+  isAnimating.value = true;
+
+  await new Promise((resolve) => setTimeout(resolve, 600));
+
+  currentView.value = matchedView;
+
+  setTimeout(() => {
+    isAnimating.value = false;
+  }, 100);
 };
 
 export const useViews = () => {
-  return { viewsMap, currentView, setView };
+  return { viewsMap, currentView, isAnimating, handleViewChange };
 };

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const { viewsMap, currentView, setView } = useViews();
+const { viewsMap, currentView, handleViewChange } = useViews();
 
 const handleViewToggle = (viewClass: string) => {
-  setView(viewClass);
+  handleViewChange(viewClass);
 };
 </script>
 

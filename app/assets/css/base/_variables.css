@@ -12,6 +12,7 @@
   --primary-100: oklch(0.2751 0.0347 195.33);
   --primary-200: oklch(0.438 0.0279 196.18);
 
-  --secondary-0: oklch(0.5199 0.0266 285.44);
-  --secondary-100: oklch(0.7121 0.0144 286.03);
+  --secondary-0: oklch(0.33 0.0388 282.03);
+  --secondary-100: oklch(0.5199 0.0266 285.44);
+  --secondary-200: oklch(0.7121 0.0144 286.03);
 }

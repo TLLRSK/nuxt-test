@@ -5,7 +5,7 @@ import IconBookmark from "../icons/IconBookmark.vue";
 
 type Props = {
   item: TTransformedYacht;
-}
+};
 
 defineProps<Props>();
 </script>
@@ -15,7 +15,7 @@ defineProps<Props>();
     <article>
       <NuxtLink :to="`/${item.permalink}`" class="image-container">
         <button class="btn--bookmark">
-          <IconBookmark class="bookmark-icon" />
+          <IconBookmark class="icon--bookmark" />
         </button>
         <img :src="item.coverImage.url" :alt="item.name" class="img" />
       </NuxtLink>
@@ -56,9 +56,7 @@ defineProps<Props>();
         <NuxtLink :to="`/${item.permalink}`">
           <h3 class="text-md">{{ item.name }}</h3>
         </NuxtLink>
-        <button class="btn--primary text-sm">
-          Enquiry
-        </button>
+        <button class="btn--primary text-sm">Enquiry</button>
       </div>
     </article>
   </li>

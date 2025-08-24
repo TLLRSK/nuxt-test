@@ -1,7 +1,10 @@
 import type { TServerYachtsResponse, TTransformedYacht } from "~/types/types";
+
 export const useYachts = () => {
   const page = ref(1);
   const buy = ref(true);
+ 
+  const allYachts = useState<TTransformedYacht[]>("yachts-list", () => []);
 
   const {
     data,
@@ -23,27 +26,25 @@ export const useYachts = () => {
         }
         return data;
       },
+      server: true,
+      immediate: true,
     }
   );
 
-  const allYachts = useState<TTransformedYacht[]>("yachts-list", () => {
-    return data.value?.data || [];
-  });
-
   const totalYachts = computed(() => data.value?.meta.total || 0);
-  const totalPages = computed(
-    () => data.value?.meta.totalPages || 0
-  );
+  const totalPages = computed(() => data.value?.meta.totalPages || 0);
   const hasNextPage = computed(() => page.value < totalPages.value);
+
   const loadMore = () => {
     if (hasNextPage.value && !pending.value) {
       page.value++;
     }
   };
+
   return {
     yachts: allYachts,
     totalYachts,
-    isLoading: pending,
+    pending,
     error,
     hasNextPage,
     loadMore,

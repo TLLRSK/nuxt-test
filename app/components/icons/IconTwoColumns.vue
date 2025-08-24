@@ -11,7 +11,7 @@ defineProps<TViewIconProps>();
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="view-icon--two-columns"
+    class="icon--view-two-columns"
   >
     <rect
       x="2"
@@ -19,7 +19,7 @@ defineProps<TViewIconProps>();
       width="8"
       height="8"
       fill="currentColor"
-      stroke="#0B2020"
+      stroke="#5F7272"
       :class="{ active: active }"
     />
     <rect
@@ -28,7 +28,7 @@ defineProps<TViewIconProps>();
       width="8"
       height="8"
       fill="currentColor"
-      stroke="#0B2020"
+      stroke="#5F7272"
       :class="{ active: active }"
     />
   </svg>

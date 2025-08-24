@@ -2,9 +2,9 @@
 import IconLoading from "../icons/IconLoading.vue";
 import Card from "./Card.vue";
 import Header from "./Header.vue";
-const { currentView } = useViews();
-const { yachts, isLoading, error, hasNextPage, loadMore } =
-  useYachts();
+
+const { currentView, isAnimating } = useViews();
+const { yachts, pending, error, hasNextPage, loadMore } = useYachts();
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const { yachts, isLoading, error, hasNextPage, loadMore } =
       <p>There was an error loading the yachts list: {{ error.message }}</p>
     </div>
 
-    <ul :class="['grid', currentView?.class]">
+    <ul :class="['grid', currentView?.class, { 'is-animating': isAnimating }]">
       <Card v-for="item in yachts" :key="item.id" :item="item" />
     </ul>
 
@@ -23,12 +23,18 @@ const { yachts, isLoading, error, hasNextPage, loadMore } =
       <p class="no-results-text font-urban-grotesk">No yachts found.</p>
     </div>
 
-    <div v-else-if="isLoading" class="loading">
-      <IconLoading />
-    </div>
+    <ClientOnly>
+      <div v-if="pending" class="loading">
+        <IconLoading />
+      </div>
+    </ClientOnly>
 
-    <div v-if="hasNextPage && yachts.length > 0" class="load-more-container">
-      <button @click="loadMore" class="btn--secondary text-sm">Load More</button>
-    </div>
+    <ClientOnly>
+      <div v-if="hasNextPage && yachts.length > 0" class="load-more-container">
+        <button @click="loadMore" class="btn--secondary text-sm">
+          Load More
+        </button>
+      </div>
+    </ClientOnly>
   </section>
 </template>

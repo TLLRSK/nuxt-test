@@ -18,6 +18,7 @@ const introAnimation = () => {
       height: "6.2rem",
       backgroundColor: "#FFFFFF",
       ease: "power2.inOut",
+      borderColor: "#F0F0F0",
     },
     "start"
   );
@@ -29,7 +30,7 @@ const introAnimation = () => {
       scale: 1,
       ease: "power2.inOut",
     },
-    "start"
+    "-=2.8"
   );
 
   tl.to(
@@ -39,7 +40,7 @@ const introAnimation = () => {
       color: "#102D2D",
       ease: "power2.inOut",
     },
-    "start+=0.75"
+    "-=1"
   );
 };
 </script>
