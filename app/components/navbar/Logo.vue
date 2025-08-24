@@ -4,7 +4,7 @@
     alt="ROY Logo" 
     class="logo"
     width="63" 
-    height="30"
+    height="29.3"
   />
 </template>
 
