@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconLoading from "../icons/IconLoading.vue";
 import Card from "./Card.vue";
 import Header from "./Header.vue";
 const { currentView } = useViews();
@@ -18,12 +19,12 @@ const { yachts, isLoading, error, hasNextPage, loadMore } =
       <Card v-for="item in yachts" :key="item.id" :item="item" />
     </ul>
 
-    <div v-if="isLoading">
-      <p class="loading-text font-urban-grotesk">Loading yachts...</p>
+    <div v-if="yachts.length === 0" class="no-results">
+      <p class="no-results-text font-urban-grotesk">No yachts found.</p>
     </div>
 
-    <div v-else-if="yachts.length === 0" class="no-results">
-      <p class="no-results-text font-urban-grotesk">No yachts found.</p>
+    <div v-else-if="isLoading" class="loading">
+      <IconLoading />
     </div>
 
     <div v-if="hasNextPage && yachts.length > 0" class="load-more-container">

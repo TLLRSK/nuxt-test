@@ -2,7 +2,7 @@
   .image-container {
     display: flex;
     width: 100%;
-    aspect-ratio: 351/220;
+    aspect-ratio: 350/220;
     position: relative;
 
     img {

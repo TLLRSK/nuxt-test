@@ -1,6 +1,7 @@
 /* Grid Container Styles */
 .grid-container {
   width: 100%;
+  min-height: 100dvh;
 }
 
 .grid {
@@ -35,6 +36,10 @@
   }
 }
 
+.loading {
+  width: fit-content;
+  margin: 4.8rem auto;
+}
 .load-more-container {
   width: fit-content;
   margin: 102px auto 0 auto;

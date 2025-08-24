@@ -20,9 +20,9 @@ defineProps<Props>();
         <img :src="item.coverImage.url" :alt="item.name" class="img" />
       </NuxtLink>
 
-      <div class="price text-sm">
-        <h4>Price:</h4>
-        <p>
+      <div class="price">
+        <h4 class="text-sm">Price:</h4>
+        <p class="text-sm">
           {{
             item.buyPrice?.EUR
               ? `${item.buyPrice.EUR.toLocaleString()}€`
@@ -32,23 +32,23 @@ defineProps<Props>();
       </div>
 
       <div class="specs">
-        <div class="spec-item text-sm">
-          <h4>Length:</h4>
-          <p>{{ item.length.meters }}m</p>
+        <div class="spec-item">
+          <h4 class="text-sm">Length:</h4>
+          <p class="text-sm">{{ item.length.meters }}m</p>
         </div>
 
         <span>|</span>
 
         <div class="spec-item text-sm">
-          <h4>Guests:</h4>
-          <p>{{ item.guestsNumber }}</p>
+          <h4 class="text-sm">Guests:</h4>
+          <p class="text-sm">{{ item.guestsNumber }}</p>
         </div>
 
         <span>|</span>
 
         <div class="spec-item text-sm">
-          <h4>Cabins:</h4>
-          <p>{{ item.cabinsNumber }}</p>
+          <h4 class="text-sm">Cabins:</h4>
+          <p class="text-sm">{{ item.cabinsNumber }}</p>
         </div>
       </div>
 
