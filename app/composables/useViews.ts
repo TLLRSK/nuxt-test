@@ -16,22 +16,27 @@ const viewsMap: TViewsMap = {
 const currentView: Ref<TView | undefined> = ref(viewsMap.columnsTwo);
 const isAnimating: Ref<boolean> = ref(false);
 
-const handleViewChange = async (selectedView: string): Promise<void> => {
+const animationTimeout = ref<NodeJS.Timeout | null>(null);
+
+const handleViewChange = (selectedView: string): void => {
   const matchedView = Object.values(viewsMap).find(
     (view) => view.class === selectedView
   );
 
   if (!matchedView || matchedView.class === currentView.value?.class) return;
 
+  if (animationTimeout.value) {
+    clearTimeout(animationTimeout.value);
+    animationTimeout.value = null;
+  }
+
   isAnimating.value = true;
 
-  await new Promise((resolve) => setTimeout(resolve, 600));
-
-  currentView.value = matchedView;
-
-  setTimeout(() => {
+  animationTimeout.value = setTimeout(() => {
+    currentView.value = matchedView;
     isAnimating.value = false;
-  }, 100);
+    animationTimeout.value = null;
+  }, 650);
 };
 
 export const useViews = () => {
