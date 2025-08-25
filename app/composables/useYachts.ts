@@ -26,8 +26,6 @@ export const useYachts = () => {
         }
         return data;
       },
-      server: true,
-      immediate: true,
     }
   );
 
