@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import type { TView } from '~/types/types';
+
 const { viewsMap, currentView, handleViewChange } = useViews();
 
 const handleViewToggle = (viewClass: string) => {
   handleViewChange(viewClass);
+};
+
+const isActive = (view: TView) => {
+  return currentView.value?.class === view.class;
 };
 </script>
 
@@ -15,14 +21,14 @@ const handleViewToggle = (viewClass: string) => {
         <button
           v-for="view in viewsMap"
           :key="view.class"
-          :class="['btn--view', { active: currentView?.class === view.class }]"
+          :class="['btn--view', { active: isActive(view) }]"
           :data-view="view.class"
           @click="handleViewToggle(view.class)"
         >
           <component
             :is="view.icon"
             class="view-icon"
-            :active="currentView?.class === view.class"
+            :active="isActive(view)"
           />
         </button>
       </div>
