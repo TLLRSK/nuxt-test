@@ -15,11 +15,14 @@ header {
   span {
     color: var(--secondary-0);
   }
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  header {
     justify-content: space-between;
     padding: 0.8rem 1.6rem 0 1.6rem;
     margin: calc(62px + 4px) 0 0 0;
+
     h1::before {
       content: attr(data-desktop);
     }

@@ -12,9 +12,11 @@ nav {
   @media screen and (min-width: 768px) {
     border-bottom: none;
   }
+
   a {
     margin: auto;
   }
+  
   .logo {
     color: #ffffff;
     transform: scale(3.2);
