@@ -8,7 +8,6 @@ import Navbar from "./components/navbar/Navbar.vue";
 <template>
   <div>
     <Navbar />
-     <!-- <div style="height: 100vh;"></div> -->
       <Grid />
     <Footer />
   </div>
