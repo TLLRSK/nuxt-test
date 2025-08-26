@@ -29,10 +29,15 @@ const { yachts, pending, error, hasNextPage, loadMore } = useYachts();
       </div>
     </ClientOnly>
 
-    <div v-if="!pending && hasNextPage && yachts.length > 0" class="load-more-container">
-      <button @click="loadMore" class="btn--secondary text-sm">
-        Load More
-      </button>
-    </div>
+    <ClientOnly>
+      <div
+        v-if="!pending && hasNextPage && yachts.length > 0"
+        class="load-more-container"
+      >
+        <button @click="loadMore" class="btn--secondary text-sm">
+          Load More
+        </button>
+      </div>
+    </ClientOnly>
   </section>
 </template>
