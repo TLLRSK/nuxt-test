@@ -15,13 +15,16 @@ const { yachts, pending, error, hasNextPage, loadMore } = useYachts();
       <p>There was an error loading the yachts list: {{ error.message }}</p>
     </div>
 
-    <ul :class="['grid', currentView?.class, { 'is-animating': isAnimating }]">
+    <div v-if="!pending && !error && yachts.length === 0" class="no-results">
+      <p>No yachts found.</p>
+    </div>
+
+    <ul
+      v-else-if="!error"
+      :class="['grid', currentView?.class, { 'is-animating': isAnimating }]"
+    >
       <Card v-for="item in yachts" :key="item.id" :item="item" />
     </ul>
-
-    <div v-if="yachts.length === 0" class="no-results">
-      <p class="no-results-text font-urban-grotesk">No yachts found.</p>
-    </div>
 
     <ClientOnly>
       <div v-if="pending" class="loading">
@@ -31,7 +34,7 @@ const { yachts, pending, error, hasNextPage, loadMore } = useYachts();
 
     <ClientOnly>
       <div
-        v-if="!pending && hasNextPage && yachts.length > 0"
+        v-if="!pending && !error && hasNextPage && yachts.length > 0"
         class="load-more-container"
       >
         <button @click="loadMore" class="btn--secondary text-sm">
