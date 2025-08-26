@@ -11,6 +11,12 @@ type THotspots = Array<{
   name: string;
 }>;
 
+type TMeta = {
+  total: number;
+  page: number;
+  totalPages: number;
+};
+
 export type TYacht = {
   id: string;
   permalink: string;
@@ -41,20 +47,12 @@ export type TTransformedYacht = Omit<
 >;
 
 export type TYachtsApiResponse = {
-  meta: {
-    total: number;
-    page: number;
-    totalPages: number;
-  };
+  meta: TMeta;
   data: TYacht[];
 };
 
 export type TServerYachtsResponse = {
-  meta: {
-    total: number;
-    page: number;
-    totalPages: number;
-  };
+  meta: TMeta;
   data: TTransformedYacht[];
 };
 
@@ -71,11 +69,11 @@ export interface YachtState {
 export type TView = {
   class: string;
   icon: Component;
-}
+};
 
 export type TViewsMap = Record<string, TView>;
 
 export type TViewIconProps = {
   color?: string;
   active: boolean;
-}
+};
